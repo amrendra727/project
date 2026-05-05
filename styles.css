@@ -1,0 +1,144 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* BODY */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* ================= ADD PAGE ================= */
+body.add-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add Page Container */
+.add-page .container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs */
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #7f5af0;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #6a45e0;
+}
+
+/* AI Question */
+#aiQuestion {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* ================= INDEX PAGE ================= */
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Main container */
+.container {
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+/* Header */
+.header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #7f5af0;
+    color: white;
+}
+
+/* Grid */
+.complaints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.complaint-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+/* AI Box */
+.ai-box {
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 3px solid #7f5af0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}

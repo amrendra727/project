@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <h1>ComplaintBox</h1>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="add.html">Add Complaint</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="header-action">
+            <h2>All Complaints</h2>
+            <a href="add.html" class="btn primary-btn">+ New Complaint</a>
+        </div>
+
+        <div id="complaints-container" class="complaints-grid">
+            <!-- Complaints will be injected here -->
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <p>&copy; 2026 ComplaintBox. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // UPDATED render function (AI Q&A included)
+        function renderComplaints() {
+            const container = document.getElementById("complaints-container");
+            const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+
+            if (complaints.length === 0) {
+                container.innerHTML = "<p>No complaints yet.</p>";
+                return;
+            }
+
+            container.innerHTML = "";
+
+            complaints.reverse().forEach(item => {
+                const card = document.createElement("div");
+                card.className = "complaint-card glass";
+
+                card.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p><b>City:</b> ${item.city}</p>
+                    <p><b>Mobile:</b> ${item.mobile}</p>
+                    <p><b>Complaint:</b> ${item.complaint}</p>
+
+                    ${item.aiQuestion ? `
+                        <div class="ai-box">
+                            <p><b>AI Question:</b> ${item.aiQuestion}</p>
+                            <p><b>Your Answer:</b> ${item.answer}</p>
+                        </div>
+                    ` : ""}
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderComplaints);
+    </script>
+
+</body>
+
+</html>

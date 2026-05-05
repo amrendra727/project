@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Complaint</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="add-page">
+
+    <div class="container">
+        <h2>Add Complaint</h2>
+
+        <!-- API KEY (Auto-filled for testing) -->
+        <input type="hidden" id="apiKey" value="AIzaSyBXEci-KX1QvYq0L8MTv7fgLsL-6s_XQRM">
+
+        <!-- STEP 1 -->
+        <div id="step1">
+            <input type="text" id="name" placeholder="Name"><br>
+            <input type="text" id="city" placeholder="City"><br>
+            <input type="text" id="mobile" placeholder="Mobile"><br>
+            <textarea id="complaint" placeholder="Enter complaint"></textarea><br>
+            <button onclick="goToStep2()">Generate Question</button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step2" style="display:none;">
+            <h3>AI Follow-up Question:</h3>
+            <p id="aiQuestion">Loading...</p>
+
+            <textarea id="answer" placeholder="Your Answer"></textarea><br>
+            <button onclick="submitComplaint()">Submit Complaint</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        /* EXTRA SAFETY: Empty fields check */
+        function validateStep1() {
+            const name = document.getElementById("name").value;
+            const city = document.getElementById("city").value;
+            const mobile = document.getElementById("mobile").value;
+            const complaint = document.getElementById("complaint").value;
+
+            if (!name || !city || !mobile || !complaint) {
+                alert("Sab fields fill karo!");
+                return false;
+            }
+            return true;
+        }
+
+        /* Override goToStep2 with validation */
+        const originalGoToStep2 = window.goToStep2;
+
+        window.goToStep2 = async function () {
+            if (!validateStep1()) return;
+
+            await originalGoToStep2();
+        };
+    </script>
+
+</body>
+
+</html>
